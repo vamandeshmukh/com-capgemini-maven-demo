@@ -23,6 +23,7 @@ INSERT INTO emp (eid, first_name, salary) VALUES (103, 'Tonu', 65000);
 INSERT INTO emp (eid, first_name, salary) VALUES (104, 'Ponu', 55000);
 INSERT INTO emp (eid, first_name, salary) VALUES (105, 'Gonu', 75000);
 
+SELECT * FROM emp;
 
 
 
