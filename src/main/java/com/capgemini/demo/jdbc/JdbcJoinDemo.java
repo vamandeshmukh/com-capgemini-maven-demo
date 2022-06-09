@@ -13,8 +13,8 @@ public class JdbcJoinDemo {
 		String url = "jdbc:postgresql://localhost:5432/may12";
 		String user = "postgres";
 		String password = "root";
-		String sql = "SELECT e.eid, e.first_name, e.salary, \r\n" + "d.did, d.dname, d.city \r\n" + "FROM emps e\r\n"
-				+ "FULL JOIN deps d\r\n" + "ON e.did = d.did;\r\n" + "";
+		String sql = "SELECT e.eid, e.first_name, e.salary, d.did, d.dname, d.city " + "FROM emps e "
+				+ "LEFT JOIN deps d " + "ON e.did = d.did ORDER BY e.eid;";
 
 		Connection con = null;
 		Statement st = null;
@@ -32,13 +32,14 @@ public class JdbcJoinDemo {
 				System.out.print(rs.getMetaData().getColumnLabel(i) + " \t");
 			}
 			System.out.println("\n");
-			while (rs.next()) {
 
+			while (rs.next()) {
 				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
 					System.out.print(rs.getString(i) + " \t");
 				}
 				System.out.println("");
 			}
+
 			rs.close();
 			st.close();
 			con.close();

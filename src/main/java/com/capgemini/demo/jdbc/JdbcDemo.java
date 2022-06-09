@@ -4,7 +4,6 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 
 // jdbc demo to connect to Postgres DB 
 // if your PG admin is open, 
@@ -27,7 +26,7 @@ public class JdbcDemo {
 		System.out.println("Start");
 		try {
 
-//			Class.forName(className);
+			Class.forName(className);
 			con = DriverManager.getConnection(url, user, password);
 			st = con.createStatement();
 			rs = st.executeQuery(sql);
