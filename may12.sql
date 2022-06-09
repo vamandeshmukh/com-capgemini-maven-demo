@@ -126,4 +126,67 @@ WHERE salary = (SELECT max(salary) from emps);
 COMMIT; 
 
 
+SELECT * FROM emps;
+SELECT * FROM deps;
+
+
+--  In which city does Sonu work?
+SELECT eid, first_name, city 
+FROM emps
+JOIN deps 
+ON emps.did = deps.did
+WHERE first_name = 'Sonu';
+
+-- JOINs
+
+SELECT eid, first_name, city 
+FROM emps
+JOIN deps 
+ON emps.did = deps.did;
+
+SELECT e.eid, e.first_name, d.city 
+FROM emps e
+JOIN deps d
+ON e.did = d.did;
+ 
+--  types of join 
+-- 1. inner join 
+-- outer join 
+-- 2. left outer join 
+-- 3. right outer join 
+-- 4. fulll outer join 
+
+SELECT * FROM emps;
+SELECT * FROM deps;
+COMMIT; 
+
+-- 1. inner join - fetches only matching records 
+SELECT e.eid, e.first_name, e.salary, d.did, d.dname, d.city 
+FROM emps e
+JOIN deps d
+ON e.did = d.did;
+
+-- outer join 
+-- 2. left outer join - fetch matching records from both the tables and 
+-- non-matching records from left table 
+SELECT e.eid, e.first_name, e.salary, d.did, d.dname, d.city 
+FROM emps e
+LEFT JOIN deps d
+ON e.did = d.did;
+
+-- 3. right outer join - fetch matching records from both the tables and 
+-- non-matching records from right table
+SELECT e.eid, e.first_name, e.salary, d.did, d.dname, d.city 
+FROM emps e
+RIGHT JOIN deps d
+ON e.did = d.did;
+
+-- 4. fulll outer join 
+--  fetch matching and non-matching  records from both the tables and 
+-- non-matching records from right table
+SELECT e.eid, e.first_name, e.salary, d.did, d.dname, d.city 
+FROM emps e
+FULL JOIN deps d
+ON e.did = d.did;
+ 
  
