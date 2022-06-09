@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 
 // jdbc demo to connect to Postgres DB 
 // if your PG admin is open, 
-// run commit;
+// run commit on PG admin;
 
 public class JdbcDemo {
 

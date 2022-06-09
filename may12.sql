@@ -213,6 +213,7 @@ alter table emps add column aadhaar int;
 UPDATE emps set aadhaar = 1111111999 where eid = 101;
 alter table emps drop column aadhaar; 
 
+ commit;
  
 
 
