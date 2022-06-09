@@ -1,3 +1,5 @@
+-- link - 
+--  https://github.com/vamandeshmukh/com-capgemini-maven-demo/blob/main/may12.sql 
 
 select current_date;
 
