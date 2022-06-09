@@ -105,5 +105,23 @@ SELECT * FROM deps;
 
 INSERT INTO emps (eid, first_name, salary, did) VALUES (106, 'Ronu', 50000, 50);
 
+-- functions in SQL 
+-- What is the average salary of employees ?
+SELECT max(salary) from emps;
+SELECT min(salary) from emps;
+SELECT round(avg(salary)) from emps;
+SELECT sum(salary) from emps;
+SELECT UPPER(first_name) from emps;
+
+SELECT salary, salary + 10000  "Hike" from emps;
+
+-- subquery 
+-- Which employee has the highest salary?
+SELECT first_name, salary from emps 
+WHERE salary = (SELECT max(salary) from emps);
+
+
+COMMIT; 
+
 
  
