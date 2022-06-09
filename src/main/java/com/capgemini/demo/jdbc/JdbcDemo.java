@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class JdbcDemo {
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) {
 
 		String className = "org.postgresql.Driver";
 		String url = "jdbc:postgresql://localhost:5432/may12";
@@ -23,21 +23,29 @@ public class JdbcDemo {
 		ResultSet rs = null;
 
 		System.out.println("Start");
+		try {
 
-		Class.forName(className);
-		con = DriverManager.getConnection(url, user, password);
+			Class.forName(className);
+			con = DriverManager.getConnection(url, user, password);
 
-		st = con.createStatement();
+			st = con.createStatement();
 
-		rs = st.executeQuery(sql);
+			rs = st.executeQuery(sql);
 
-		while (rs.next()) {
-			System.out.println(rs.getString(2));
+			while (rs.next()) {
+				int index = 1;
+				for (int i = 1; i < rs.getFetchSize(); i++) {
+					System.out.print(rs.getString(index));
+					index++;
+				}
+				System.out.println("\n");
+			}
+
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
-
-//		System.out.println(rs.getFetchSize());
-
-		con.close();
 
 		System.out.println("End");
 
