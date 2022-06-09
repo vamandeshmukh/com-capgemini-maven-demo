@@ -189,4 +189,32 @@ FROM emps e
 FULL JOIN deps d
 ON e.did = d.did;
  
+
+SELECT max(salary), min(salary) from emps;
+
+SELECT max(salary) from emps
+UNION
+SELECT min(salary) from emps;
+
+
+SELECT first_name, salary from emps 
+WHERE salary = (SELECT max(salary) from emps)
+UNION
+SELECT first_name, salary from emps 
+WHERE salary = (SELECT min(salary) from emps);
+
+select * from emps;
+
+commit; 
+
+-- alter table 
+alter table emps add column aadhaar int;
+
+UPDATE emps set aadhaar = 1111111999 where eid = 101;
+alter table emps drop column aadhaar; 
+
  
+
+
+
+
