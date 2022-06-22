@@ -14,6 +14,7 @@ public class LambdaDemo {
 //		Calc calc = (amount, gst) -> amount + (amount * gst * 0.01);
 
 		double paymentAmount = calc.calcGst(billAmount, gstPct);
+
 		System.out.println(billAmount);
 		System.out.println(gstPct);
 		System.out.println(paymentAmount);
