@@ -42,17 +42,38 @@ public class StreamDemo {
 		System.out.println("Using stream API...");
 		System.out.println("Convert collection to stream");
 		Stream<Employee> empStream = empList.stream();
-		System.out.println("Convert stream to collection");
-		System.out.println(empStream.collect(Collectors.toList()));
 
-		System.out.println("List of employees with salary > 60000 using stream API:");
+		System.out.println("Convert stream to collection");
+		empStream.collect(Collectors.toList());
+
+		System.out.println("List of employees with salary > 60000 using stream API: filter();"); // 11:25
+
 		Stream<Employee> empsWithMoreSalary = empList.stream();
+
+//		Stream<Employee> streamObject = empList.stream();		
+//		streamObject.filter().collect();		
+//		empList.stream().filter().collect();		
+
 		empsWithMoreSalary.filter((emp) -> {
 			return emp.getSalary() > 60000;
 		}).forEach((emp) -> {
 			System.out.println(emp.toString());
 		});
 
+		System.out.println("Create List of employees with salary > 60000 using stream api:");
+
+//		List<Employee> higherSalEmployeeList = empList.stream().filter(emp -> emp.getSalary() > 60000)
+//				.collect(Collectors.toList());
+//		System.out.println(higherSalEmployeeList);
+
+		empList.stream().filter(emp -> emp.getSalary() > 60000).collect(Collectors.toList())
+				.forEach(e -> System.out.println(e.toString()));
+
+		System.out.println("Get first three employees from empList:");
+		empList.stream().limit(3).collect(Collectors.toList()).forEach(e -> System.out.println(e.toString()));
+
+		System.out.println("Get employees 3rd onwards from empList:");
+		empList.stream().skip(2).collect(Collectors.toList()).forEach(e -> System.out.println(e.toString()));
 	}
 }
 
