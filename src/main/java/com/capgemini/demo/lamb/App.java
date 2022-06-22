@@ -49,25 +49,8 @@ public class App {
 		// lambda syntax -
 		// InterfaceName objectName = () -> {method body};
 
-		SomeInterface obj = () -> {
-			System.out.println("someMethod() implemented.");
-		};
+		SomeInterface obj = () -> System.out.println("someMethod() implemented.");
 
 		obj.someMethod();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

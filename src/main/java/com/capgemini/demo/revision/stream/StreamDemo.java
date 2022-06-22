@@ -35,16 +35,18 @@ public class StreamDemo {
 		}
 
 		System.out.println("List of all employees using lambda:");
-		empList.forEach((emp) -> {
-			System.out.println(emp.toString());
-		});
+//		empList.forEach((emp) -> {
+//			System.out.println(emp.toString());
+//		});
+
+		empList.forEach(emp -> System.out.println(emp.toString()));
 
 		System.out.println("Using stream API...");
 		System.out.println("Convert collection to stream");
 		Stream<Employee> empStream = empList.stream();
 
 		System.out.println("Convert stream to collection");
-		empStream.collect(Collectors.toList());
+//		empStream.collect(Collectors.toList());
 
 		System.out.println("List of employees with salary > 60000 using stream API: filter();"); // 11:25
 
@@ -56,9 +58,7 @@ public class StreamDemo {
 
 		empsWithMoreSalary.filter((emp) -> {
 			return emp.getSalary() > 60000;
-		}).forEach((emp) -> {
-			System.out.println(emp.toString());
-		});
+		}).forEach(emp -> System.out.println(emp.toString()));
 
 		System.out.println("Create List of employees with salary > 60000 using stream api:");
 

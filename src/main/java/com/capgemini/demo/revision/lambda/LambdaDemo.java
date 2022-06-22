@@ -7,9 +7,7 @@ public class LambdaDemo {
 		double billAmount = 1500;
 		double gstPct = 18;
 
-		Calc calc = (amount, gst) -> {
-			return amount + (amount * gst * 0.01);
-		};
+		Calc calc = (amount, gst) -> amount + (amount * gst * 0.01);
 
 //		Calc calc = (amount, gst) -> amount + (amount * gst * 0.01);
 

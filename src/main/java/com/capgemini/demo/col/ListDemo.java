@@ -9,7 +9,7 @@ public class ListDemo {
 	public static void main(String[] args) {
 		
 		ArrayList<Integer> list = new ArrayList<>();
-		list.size();
+//		list.size();
 
 		
 		Stack<Integer> stack = new Stack<>();

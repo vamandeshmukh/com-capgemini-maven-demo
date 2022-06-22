@@ -17,7 +17,7 @@ public class CalcTest {
 	}
 
 	@Test
-	public void testAddNums2() {
+	void testAddNums2() {
 
 		Calc cal = new Calc();
 		int unexpected = 35;
@@ -26,7 +26,7 @@ public class CalcTest {
 	}
 
 	@Test
-	public void testAddNums3() {
+	void testAddNums3() {
 
 		Calc cal = new Calc();
 		assertEquals(30, cal.addNums(10, 20)); // true

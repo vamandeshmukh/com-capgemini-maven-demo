@@ -4,6 +4,7 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 // jdbc demo to connect to Postgres DB 
 // if your PG admin is open, 
@@ -11,7 +12,7 @@ import java.sql.ResultSet;
 
 public class JdbcDemo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 
 		String className = "org.postgresql.Driver";
 		String url = "jdbc:postgresql://localhost:5432/may12";
@@ -38,12 +39,13 @@ public class JdbcDemo {
 				}
 				System.out.println("\n");
 			}
-			rs.close();
-			st.close();
-			con.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			rs.close();
+			st.close();
+			con.close();
 		}
 		System.out.println("End");
 	}
